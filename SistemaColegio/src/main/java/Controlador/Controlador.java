@@ -60,5 +60,18 @@ public class Controlador {
         colegio.agregarPersona(p);
         return "Profesor agregado correctamente";
     }
+    
+    public String agregarEstudiante(String nombre, String direccion, String telefono, String fechaNacimiento,
+            String codigo) {
+
+        if (!validarFecha(fechaNacimiento)) {
+            return "Fecha inválida. Use dd/MM/yyyy";
+        }
+
+        Estudiante e = new Estudiante(nombre, direccion, telefono, fechaNacimiento, codigo);
+        colegio.agregarPersona(e);
+
+        return "Estudiante agregado correctamente";
+    }
 
 }
