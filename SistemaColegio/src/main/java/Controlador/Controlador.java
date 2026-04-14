@@ -73,5 +73,14 @@ public class Controlador {
 
         return "Estudiante agregado correctamente";
     }
+    
+    public String buscarProfesor(int cedula) {
+        Profesor p = colegio.buscarProfesor(cedula);
+        if (p != null) {
+            return p.generarReporte();
+        } else {
+            return "Profesor no encontrado";
+        }
+    }
 
 }
