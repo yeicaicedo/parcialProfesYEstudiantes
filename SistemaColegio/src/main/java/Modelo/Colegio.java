@@ -20,4 +20,12 @@ public class Colegio {
         profesores = new ArrayList<>();
         estudiantes = new ArrayList<>();
     }   
+    
+    public void agregarPersona(Profesor p) {
+        profesores.add(p);
+    }
+
+    public void agregarPersona(Estudiante e) {
+        estudiantes.add(e);
+    }
 }

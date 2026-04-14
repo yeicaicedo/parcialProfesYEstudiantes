@@ -25,7 +25,6 @@ public class Profesor extends Persona {
         this.horasTrabajadas = horasTrabajadas;
     }
 
-    
     public double calcularPagoMensual() {
         double pagoMensual = salarioHora * horasTrabajadas;
         return pagoMensual + (pagoMensual * 0.30);
