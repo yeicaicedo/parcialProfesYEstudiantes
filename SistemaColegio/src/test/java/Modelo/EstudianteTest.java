@@ -20,61 +20,16 @@ public class EstudianteTest {
     public EstudianteTest() {
     }
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
-
-    /**
-     * Test of generarReporte method, of class Estudiante.
-     */
     @Test
-    public void testGenerarReporte() {
-        System.out.println("generarReporte");
-        Estudiante instance = null;
-        String expResult = "";
-        String result = instance.generarReporte();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    public void testGenerarReporteEstudiante() {
 
-    /**
-     * Test of getCodigo method, of class Estudiante.
-     */
-    @Test
-    public void testGetCodigo() {
-        System.out.println("getCodigo");
-        Estudiante instance = null;
-        String expResult = "";
-        String result = instance.getCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        Estudiante e = new Estudiante("Ana", "Calle 5", "3009999999",
+                "02/02/2002", "EST123");
 
-    /**
-     * Test of setCodigo method, of class Estudiante.
-     */
-    @Test
-    public void testSetCodigo() {
-        System.out.println("setCodigo");
-        String codigo = "";
-        Estudiante instance = null;
-        instance.setCodigo(codigo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String reporte = e.generarReporte();
+
+        assertTrue(reporte.contains("Ana"));
+        assertTrue(reporte.contains("EST123"));
+        assertTrue(reporte.contains("Direccion"));
     }
-    
 }
