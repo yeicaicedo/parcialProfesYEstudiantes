@@ -44,5 +44,21 @@ public class Controlador {
     public boolean cedulaExiste(int cedula) {
         return colegio.buscarProfesor(cedula) != null;
     }
+    
+    public String agregarProfesor(String nombre, String direccion, String telefono, String fechaNacimiento,
+            int cedula, String area, double salarioHora, int horasTrabajadas) {
+
+        if (cedulaExiste(cedula)) {
+            return "La cédula ya está registrada";
+        }
+
+        if (!validarFecha(fechaNacimiento)) {
+            return "Fecha inválida. Use dd/MM/yyyy";
+        }
+
+        Profesor p = new Profesor(nombre, direccion, telefono, fechaNacimiento, cedula, area, salarioHora, horasTrabajadas);
+        colegio.agregarPersona(p);
+        return "Profesor agregado correctamente";
+    }
 
 }
