@@ -8,6 +8,16 @@ package Modelo;
  *
  * @author USUARIO
  */
+import java.util.ArrayList;
+
 public class Colegio {
-    
+
+    private ArrayList<Profesor> profesores;
+    private ArrayList<Estudiante> estudiantes;
+
+    // CONSTRUCTOR
+    public Colegio() {
+        profesores = new ArrayList<>();
+        estudiantes = new ArrayList<>();
+    }   
 }
