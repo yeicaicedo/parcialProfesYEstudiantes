@@ -19,8 +19,8 @@ public class Colegio {
     public Colegio() {
         profesores = new ArrayList<>();
         estudiantes = new ArrayList<>();
-    }   
-    
+    }
+
     public void agregarPersona(Profesor p) {
         profesores.add(p);
     }
@@ -28,7 +28,7 @@ public class Colegio {
     public void agregarPersona(Estudiante e) {
         estudiantes.add(e);
     }
-    
+
     public Profesor buscarProfesor(int cedula) {
         for (int i = 0; i < profesores.size(); i++) {
             if (profesores.get(i).getCedula() == cedula) {
@@ -37,13 +37,42 @@ public class Colegio {
         }
         return null;
     }
-    
+
     public String reporteEstudiantes() {
         String reporte = "LISTA DE ESTUDIANTES\n\n";
 
         for (int i = 0; i < estudiantes.size(); i++) {
             reporte += estudiantes.get(i).generarReporte() + "\n\n";
         }
+        return reporte;
+    }
+
+    public String reporteProfesores() {
+
+        for (int i = 0; i < profesores.size() - 1; i++) {
+            for (int j = 0; j < profesores.size() - 1 - i; j++) {
+
+                if (profesores.get(j).calcularPagoMensual() < profesores.get(j + 1).calcularPagoMensual()) {
+                    Profesor aux = profesores.get(j);
+                    profesores.set(j, profesores.get(j + 1));
+                    profesores.set(j + 1, aux);
+                }
+            }
+        }
+
+        String reporte = "PROFESORES ORDENADOS (MAYOR A MENOR)\n\n";
+        double totalPrestaciones = 0;
+
+        for (int i = 0; i < profesores.size(); i++) {
+            Profesor p = profesores.get(i);
+
+            reporte += p.getNombre() + " - $" + p.calcularPagoMensual()
+                    + " - Prestaciones: $" + p.calcularPrestaciones();
+            totalPrestaciones += p.calcularPrestaciones();
+        }
+
+        reporte += "\n\nTOTAL PRESTACIONES: $" + totalPrestaciones;
+
         return reporte;
     }
 }
