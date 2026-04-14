@@ -82,5 +82,13 @@ public class Controlador {
             return "Profesor no encontrado";
         }
     }
+    
+    public String verReporteEstudiantes() {
+        return colegio.reporteEstudiantes();
+    }
+
+    public String verReporteProfesores() {
+        return colegio.reporteProfesores();
+    }
 
 }
