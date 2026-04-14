@@ -37,4 +37,13 @@ public class Colegio {
         }
         return null;
     }
+    
+    public String reporteEstudiantes() {
+        String reporte = "LISTA DE ESTUDIANTES\n\n";
+
+        for (int i = 0; i < estudiantes.size(); i++) {
+            reporte += estudiantes.get(i).generarReporte() + "\n\n";
+        }
+        return reporte;
+    }
 }
