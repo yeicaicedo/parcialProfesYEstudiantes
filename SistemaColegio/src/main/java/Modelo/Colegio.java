@@ -28,4 +28,13 @@ public class Colegio {
     public void agregarPersona(Estudiante e) {
         estudiantes.add(e);
     }
+    
+    public Profesor buscarProfesor(int cedula) {
+        for (int i = 0; i < profesores.size(); i++) {
+            if (profesores.get(i).getCedula() == cedula) {
+                return profesores.get(i);
+            }
+        }
+        return null;
+    }
 }
