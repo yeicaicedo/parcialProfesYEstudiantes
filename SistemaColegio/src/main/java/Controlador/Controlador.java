@@ -40,5 +40,9 @@ public class Controlador {
         }
         return true;
     }
+    
+    public boolean cedulaExiste(int cedula) {
+        return colegio.buscarProfesor(cedula) != null;
+    }
 
 }
